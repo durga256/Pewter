@@ -1,0 +1,25 @@
+{
+  "name": "pewter",
+  "version": "1.0.0",
+  "description": "![GitHub](https://img.shields.io/badge/NTWoC-2018-blue.svg) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souradeep-das/Pewter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/souradeep-das/Pewter/issues"
+  },
+  "homepage": "https://github.com/souradeep-das/Pewter#readme",
+  "dependencies": {
+    "zeppelin-solidity": "^1.12.0"
+  }
+}
