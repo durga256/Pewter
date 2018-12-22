@@ -6,6 +6,8 @@ import "https://github.com/souradeep-das/Pewter/node_modules/zeppelin-solidity/c
 contract pewt is ERC721Token, Ownable {
   using SafeMath for uint256;
 
+  mapping (uint256 => uint256) tokenidtovalue;
+
   string public constant name = "PewTokens";
   string public constant symbol = "PEW";
 
@@ -34,4 +36,16 @@ contract pewt is ERC721Token, Ownable {
   // the following function in ERC721BasicToken is inherited
   // function transferFrom(address _from,address _to,uint256 _tokenId)
 
+
+  function addvalue(uint256 tokenid) payable{
+    require(tokenOwner[tokenid] == msg.sender);
+    this.transfer(msg.value);
+    tokenidtovalue[tokenid].add(msg.value);
+  }
+
+  function redeem(uint256 tokenid) payable{
+    require(tokenOwner[tokenid] == msg.sender);
+    msg.sender.transfer(tokenidtovalue[tokenid]);
+    tokenidtovalue[tokenid]=0;
+  }
 }
