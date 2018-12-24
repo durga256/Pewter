@@ -37,15 +37,29 @@ contract pewt is ERC721Token, Ownable {
   // function transferFrom(address _from,address _to,uint256 _tokenId)
 
 
-  function addvalue(uint256 tokenid) payable{
+  function addvalue(uint256 tokenid) public payable{
     require(tokenOwner[tokenid] == msg.sender);
+    //check the transfer method
     this.transfer(msg.value);
-    tokenidtovalue[tokenid].add(msg.value);
+    //find an overflow proof way to add
+    tokenidtovalue[tokenid]+=msg.value;
   }
 
-  function redeem(uint256 tokenid) payable{
+  function redeem(uint256 tokenid) public payable{
     require(tokenOwner[tokenid] == msg.sender);
     msg.sender.transfer(tokenidtovalue[tokenid]);
     tokenidtovalue[tokenid]=0;
+  }
+
+
+  function tokenvaluedisplay(uint256 tokenid) public view returns(uint256) {
+      return tokenidtovalue[tokenid];
+  }
+
+  function contractbalance() public view returns(uint256) {
+      return address(this).balance;
+  }
+  function () private payable {
+
   }
 }
