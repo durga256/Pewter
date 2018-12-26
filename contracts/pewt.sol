@@ -1,7 +1,7 @@
 pragma solidity ^0.4.0;
 
-import "https://github.com/souradeep-das/Pewter/node_modules/zeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
-import "https://github.com/souradeep-das/Pewter/node_modules/zeppelin-solidity/contracts/ownership/Ownable.sol";
+import "https://github.com/souradeep-das/Pewter/blob/master/node_modules/zeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
+import "https://github.com/souradeep-das/Pewter/blob/master/node_modules/zeppelin-solidity/contracts/ownership/Ownable.sol";
 
 contract pewt is ERC721Token, Ownable {
   using SafeMath for uint256;
